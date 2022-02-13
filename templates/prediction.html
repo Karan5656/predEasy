@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"  href="{% static '/navbar.css'%}">
+
+  <title>predEasy</title>
+
+  <style>
+
+     .login_page {
+	  background-color: #f8f8f8;
+	  height: auto;
+	  padding-bottom: 110px;
+  }
+  .log_in_logo {
+	  padding-top: 100px;
+	  padding-bottom: 20px;
+	  position: relative;
+  }
+
+.log_in_box {
+	width: 60%;
+	margin: 0 auto;
+	background: #fff;
+	padding: 30px;
+	position: relative;
+	border: 10px solid #f1f1f1;
+	box-shadow: 0 0 32px #838383;
+	overflow: hidden;
+}
+.login_title {
+}
+.login_title h2 {
+	font-size: 30px;
+	font-weight: 600;
+	color: #ffaa00;
+	letter-spacing: 1px;
+	text-align: center;
+	margin: 0px;
+	margin-bottom: 20px;
+}
+.login .form-group {
+	margin-bottom: 20px;
+}
+.login .form-control{
+	background-color: transparent;
+	border: 1px solid rgba(0, 0, 0, .2);
+	box-shadow: none;
+	outline: 0;
+	height: 45px;
+	border-radius: 0px;
+ -webkit-transition: all .5s;
+ -o-transition: all .5s;
+ transition: all .5s;
+	color: #333!important;
+}
+
+
+.btn-login{
+	background-color: #333;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 23px;
+	font-weight: 200;
+	display: block;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	border-radius: 0px;
+	height: 65px;
+	letter-spacing: 1px;
+	box-shadow: none;
+	outline: 0;
+ -webkit-transition: all .5s;
+ -o-transition: all .5s;
+ transition: all .5s;
+}
+.btn-login:hover {
+	color: #fff;
+	background-color: #ffaa00;
+ -webkit-transition: all .5s;
+ -o-transition: all .5s;
+ transition: all .5s;
+}
+
+  .banner-area{
+    width:100%;
+    height:300px;
+    top:80px;
+    position:relative;
+    background-image:url({%static '/img/inner-bg.jpg' %});
+    background-size:cover;
+    background-position:center right;
+  }
+
+  .banner-area h2{
+      padding-top:7%;
+      font-size:70px;
+      font-family: 'Roboto', sans-serif;      
+      text-transform:uppercase;
+      color:#fff;
+      text-align:center;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+			<div class="wrapper">
+				<div class="logo">
+				<a class="navbar-brand" href="/">
+          <img src="{% static '/img/line-chart.png' %}" alt="" width="40" height="40" class="d-inline-block align-center">
+          predEasy
+        </a>
+				</div>
+				<nav>
+					<a href="/prediction">Prediction</a>
+				</nav>
+			</div>
+	</header>
+
+<div class="banner-area">
+    <h2>PREDICT THE FUTURE</h2>
+  </div>
+
+  <div class="container-fluid">
+    <div class="container">
+      <div class="log_in_logo text-center"> <img style="height: 250px" src="{% static '/img/tile7.png' %}"/>
+        <div class="log_in_box">
+          <form class="login" action="{% url 'result'%}", method="POST">
+            {% csrf_token %}
+            <div class="login_title">
+              <h2>PLEASE ENTER A STOCK SYMBOL</h2>{% if not_found %}
+              <div class="alert alert-danger" style="color: red;" role="alert">
+                Stock Symbol (Ticker) Not Found. Please Enter a Valid Stock Symbol
+              </div>
+              {% endif %}
+            </div>
+            <div class="form-group">
+          <input type="text" class="form-control" name = "nm" placeholder="Company Stock Symbol">
+
+        </div>
+        <div class="form-group">
+          
+        </div>
+        <div class="form-group">
+          <button class="btn btn-login">PREDICT</button>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>
+<script type="text/javascript">
+new TradingView.widget({
+  "width": 970,
+  "height": 400,
+  "symbol": "AAPL",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "Dark",
+  "style": "3",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "allow_symbol_change": true,
+  "hideideas": true
+});
+</script> -->
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

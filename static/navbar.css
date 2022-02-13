@@ -1,0 +1,47 @@
+
+.navbar{
+    background-color:rgba(0,0,0,1);
+  }
+
+  .nav-link{
+    font-weight:bold;
+    font-size:18px;
+  }
+
+  header{
+    height: 80px;
+      background: #262626;
+      width: 100%;
+      z-index: 10;
+      position: fixed;
+  }
+
+  .logo {
+      width: 30%;
+      float: left;
+      line-height: 80px;
+    margin-left: 80px;
+  }
+
+  .logo a {
+      text-decoration: none;
+      font-size: 30px;
+      font-family: 'Poppins';
+    font-weight:bold;
+      color: #fff;
+      letter-spacing: 5px
+  }
+
+  nav {
+      float: right;
+      line-height: 80px;
+  }
+
+  nav a {
+      text-decoration: none;
+      font-family: 'Roboto';
+      letter-spacing: 4px;
+      font-size: 20px;
+      margin-right: 100px;
+      color: #fff;
+  }
